@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion de Promociones</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0; }
+.card { background: white;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            width: 100%;
+            max-width: 600px
+        }
+        h2 {
+            color: #1a1a1a;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+        input[type="file"] {
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+        button {
+            background-color: #0066ff;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #0052cc;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="card">
+        <h2>Carga Inicial de Datos (MongoDB)</h2>
+        <p>Selecciona el archivo <strong>promociones.json</strong> para la base de datos principal.</p>
+        
+        <form action="/cargar" method="POST" enctype="multipart/form-data">
+            <input type="file" name="archivo_json" accept=".json" required><br>
+            <button type="submit">Cargar Datos a MongoDB</button>
+        </form>
+    </div>
+</body>
+</html>
